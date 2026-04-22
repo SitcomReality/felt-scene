@@ -1,0 +1,80 @@
+/* Minimal, mobile-friendly layout. One-screen experience. */
+:root{
+  --bg: #fbfbfb;
+  --panel: rgba(255,255,255,0.7);
+  --accent: #e65a7a;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background:var(--bg);
+  color:#111;
+}
+
+#app{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* Canvas fills safe area but stays within viewport (no scroll) */
+canvas#scene{
+  width:100%;
+  height:100%;
+  display:block;
+  touch-action: none; /* allow direct pointer events */
+}
+
+/* Overlay top-left compact controls, touch-friendly */
+#overlay{
+  position:absolute;
+  top:18px;
+  left:18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:flex-start;
+  pointer-events:auto;
+}
+
+.brand{
+  background:var(--panel);
+  backdrop-filter: blur(6px);
+  padding:8px 12px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:14px;
+  color:#222;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+.hint{
+  background:transparent;
+  color:rgba(12,12,12,0.6);
+  font-size:12px;
+  padding-left:4px;
+}
+
+#new-btn{
+  appearance:none;
+  border:0;
+  background:var(--accent);
+  color:white;
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:600;
+  min-width:48px;
+  height:40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 6px 16px rgba(230,90,122,0.14);
+  touch-action: manipulation;
+}
